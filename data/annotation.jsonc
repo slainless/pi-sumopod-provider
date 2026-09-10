@@ -1,0 +1,577 @@
+{
+	// anthropic family:
+	// v6_deepseek: {"type":"invalid_request_error","message":"thinking.enabled.budget_tokens: Field required"}
+	// v9_zai: {"type":"invalid_request_error","message":"thinking.enabled.budget_tokens: Field required"}
+	"claude-opus-4-8": {
+		"compat": { "thinkingFormat": "openai", "supportsReasoningEffort": true },
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v6_deepseek" },
+				{ "id": "v9_zai" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"claude-haiku-4-5": {
+		"compat": { "thinkingFormat": "openai", "supportsReasoningEffort": true },
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v6_deepseek" },
+				{ "id": "v9_zai" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"claude-opus-5": {
+		"compat": { "thinkingFormat": "openai", "supportsReasoningEffort": true },
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v6_deepseek" },
+				{ "id": "v9_zai" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"claude-sonnet-5": {
+		"compat": { "thinkingFormat": "openai", "supportsReasoningEffort": true },
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v6_deepseek" },
+				{ "id": "v9_zai" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	// deepseek will always have reasoning
+	"deepseek-v4-flash": { "thinkingFormat": { "supported": "always" } },
+	"deepseek-v4-flash-vision-exp": { "thinkingFormat": { "supported": "always" } },
+	"deepseek-v4-pro": { "thinkingFormat": { "supported": "always" } },
+	// gemini family:
+	// v6_deepseek: Cannot specify both `thinking` (which maps to `thinking_budget`) and `thinking_level` in the same request. For Gemini 3 models, use `thinking_level` instead.
+	// v11_string_thinking: APIConnectionError: 'str' object has no attribute 'get'
+	"gemini/gemini-3-flash-preview": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "constraint" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	"gemini/gemini-3.1-flash-lite": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "constraint" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	"gemini/gemini-3.1-pro-preview": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "constraint" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	"gemini/gemini-3.5-flash": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "constraint" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	"gemini/gemini-3.5-flash-lite": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "constraint" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	"gemini/gemini-3.7-flash": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "constraint" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	"gemini/gemini-3.8-flash": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" }
+			],
+			"rejected": [
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "constraint" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "invalid_format" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	// z.ai family:
+	// sometimes fail with 404...
+	"glm-5": {
+		"thinkingFormat": { "supported": "always" },
+		"liteReference": "openrouter/z-ai/glm-5"
+	},
+	"glm-5-turbo": {
+		"liteReference": "openrouter/z-ai/glm-5-turbo",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"glm-5.1": {
+		"liteReference": "openrouter/z-ai/glm-5.1",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"glm-5.2": {
+		"liteReference": "openrouter/z-ai/glm-5.2",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"glm-5v-turbo": {
+		"liteReference": "openrouter/z-ai/glm-5v-turbo",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"gpt-5": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5-mini": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5-nano": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5.4": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5.4-mini": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5.4-nano": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5.6-luna": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5.6-sol": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"gpt-5.6-terra": {
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "extra_field" },
+				{ "id": "v3_qwen", "reason": "extra_field" },
+				{ "id": "v4_qwen_chat_template", "reason": "extra_field" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "extra_field" },
+				{ "id": "v8_baseten", "reason": "extra_field" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "extra_field" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "extra_field" }
+			]
+		}
+	},
+	"hy3": {
+		"liteReference": "deepinfra/tencent/Hy3",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"kimi-k2.6": {
+		"liteReference": "openrouter/moonshotai/kimi-k2.6",
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v2_openrouter", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v7_together", "reason": "ignored" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "ignored" },
+				{ "id": "v12_ant_ling", "reason": "ignored" }
+			]
+		}
+	},
+	"kimi-k2.7": {
+		"liteReference": "openrouter/moonshotai/kimi-k2.7-code",
+		"thinkingFormat": {
+			"baselineReasoning": true,
+			"supported": "always",
+			"rejected": []
+		}
+	},
+	"kimi-k3": {
+		"liteReference": "openrouter/moonshotai/kimi-k3",
+		"thinkingFormat": {
+			"baselineReasoning": true,
+			"supported": "always",
+			"rejected": []
+		}
+	},
+	"mimo-v2.5": {
+		"liteReference": "openrouter/xiaomi/mimo-v2.5",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"mimo-v2.5-pro": {
+		"liteReference": "openrouter/xiaomi/mimo-v2.5-pro",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"MiniMax-M2.7-highspeed": {
+		"liteReference": "novita/minimax/minimax-m2.7-highspeed",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"MiniMax-M3": {
+		"thinkingFormat": {
+			"supported": "always",
+			"drift": [
+				{
+					"id": "v6_deepseek",
+					"fields": [
+						{ "field": "thinking.type", "allowedValue": ["adaptive", "disabled"] }
+					]
+				},
+				{
+					"id": "v9_zai",
+					"fields": [
+						{ "field": "thinking.type", "allowedValue": ["adaptive", "disabled"] }
+					]
+				}
+			]
+		}
+	},
+	"qwen3.6-flash": {
+		"liteReference": "openrouter/qwen/qwen3.6-flash",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"qwen3.6-plus": {
+		"liteReference": "openrouter/qwen/qwen3.6-plus",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"qwen3.7-flash-2026-07-15": {
+		"liteReference": "openrouter/qwen/qwen3.7-flash",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"qwen3.7-max": {
+		"liteReference": "openrouter/qwen/qwen3.7-max",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"qwen3.7-plus": {
+		"liteReference": "openrouter/qwen/qwen3.7-plus",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"qwen3.8-flash": {
+		"liteReference": "openrouter/qwen/qwen3.8-flash",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"qwen3.8-max": {
+		"liteReference": "openrouter/qwen/qwen3.8-max",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"seed-2-0-code": {
+		"liteReference": "volcengine/doubao-seed-2-0-code-preview-260215",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"seed-2-0-lite": {
+		"liteReference": "volcengine/doubao-seed-2-0-lite-260215",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"seed-2-0-mini": {
+		"liteReference": "volcengine/doubao-seed-2-0-mini-260215",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"seed-2-0-pro": {
+		"liteReference": "volcengine/doubao-seed-2-0-pro-260215",
+		"thinkingFormat": { "supported": "always" }
+	},
+	// no reasoning
+	"gpt-4.1": { "thinkingFormat": { "supported": false, "reason": "reasoning_not_supported" } },
+	"gpt-4.1-mini": { "thinkingFormat": { "supported": false, "reason": "reasoning_not_supported" } },
+	"gpt-4.1-nano": { "thinkingFormat": { "supported": false, "reason": "reasoning_not_supported" } },
+	"gpt-4o": { "thinkingFormat": { "supported": false, "reason": "reasoning_not_supported" } },
+	"gpt-4o-mini": { "thinkingFormat": { "supported": false, "reason": "reasoning_not_supported" } },
+	// embedding
+	"text-embedding-3-large": { "thinkingFormat": { "supported": false, "reason": "non_chat" } },
+	"text-embedding-3-small": { "thinkingFormat": { "supported": false, "reason": "non_chat" } },
+	"gemini/gemini-embedding-001": { "thinkingFormat": { "supported": false, "reason": "non_chat" } },
+	"deepseek-v4-flash-0731:netra": {
+		"compat": { "thinkingFormat": "openrouter" },
+		"liteReference": "openrouter/deepseek/deepseek-v4-flash-0731",
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v2_openrouter" },
+				{ "id": "v7_together" },
+				{ "id": "v12_ant_ling" }
+			],
+			"rejected": [
+				{ "id": "v1_openai", "reason": "ignored" },
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v4_qwen_chat_template", "reason": "ignored" },
+				{ "id": "v6_deepseek", "reason": "ignored" },
+				{ "id": "v8_baseten", "reason": "ignored" },
+				{ "id": "v9_zai", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "ignored" }
+			]
+		}
+	}
+}

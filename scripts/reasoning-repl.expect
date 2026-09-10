@@ -1,0 +1,12 @@
+#!/usr/bin/expect -f
+
+set script_dir [file dirname [file normalize [info script]]]
+cd $script_dir
+
+log_user 0
+spawn bun repl
+
+send ".load reasoning-repl.ts\r"
+
+log_user 1
+interact

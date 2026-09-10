@@ -1,0 +1,30 @@
+{
+	"name": "pi-sumopod",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"probe.report": "bun run ./scripts/reasoning-report.ts",
+		"probe.repl": "./scripts/reasoning-repl.expect",
+		"catalog": "bun run ./scripts/generate-catalog.ts"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"dprint": "^0.57.4",
+		"envalid": "^8.2.0",
+		"ky": "^2.1.0",
+		"mutative": "^1.3.0"
+	},
+	"peerDependencies": {
+		"typescript": "^7",
+		"@earendil-works/pi-coding-agent": "^0.85.1",
+		"typebox": "^1.3.28",
+		"jiti": "^2.7.0"
+	},
+	"pi": {
+		"extensions": [
+			"./extensions/sumopod.ts"
+		],
+		"image": "https://ai.sumopod.com/assets/pi-package-preview.png"
+	}
+}
