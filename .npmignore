@@ -5,3 +5,5 @@ experiment
 data
 .vscode
 core
+bun.lock
+dprint.json
