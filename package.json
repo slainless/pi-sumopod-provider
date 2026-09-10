@@ -1,5 +1,17 @@
 {
 	"name": "pi-sumopod",
+	"author": {
+		"name": "Aiman Fauzy",
+		"email": "aiman.fauzy.55@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/slainless/pi-sumopod-provider.git"
+	},
+	"bugs": {
+		"url": "https://github.com/slainless/pi-sumopod-provider/issues"
+	},
+	"homepage": "https://github.com/slainless/pi-sumopod-provider",
 	"module": "index.ts",
 	"type": "module",
 	"private": true,
@@ -9,6 +21,7 @@
 		"catalog": "bun run ./scripts/generate-catalog.ts"
 	},
 	"devDependencies": {
+		"typescript": "^7",
 		"@types/bun": "latest",
 		"dprint": "^0.57.4",
 		"envalid": "^8.2.0",
@@ -16,7 +29,6 @@
 		"mutative": "^1.3.0"
 	},
 	"peerDependencies": {
-		"typescript": "^7",
 		"@earendil-works/pi-coding-agent": "^0.85.1",
 		"typebox": "^1.3.28",
 		"jiti": "^2.7.0"
