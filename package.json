@@ -14,7 +14,7 @@
 	"homepage": "https://github.com/slainless/pi-sumopod-provider",
 	"module": "index.ts",
 	"type": "module",
-	"private": true,
+	"license": "MIT",
 	"scripts": {
 		"probe.report": "bun run ./scripts/reasoning-report.ts",
 		"probe.repl": "./scripts/reasoning-repl.expect",
