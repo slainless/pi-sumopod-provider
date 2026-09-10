@@ -56,7 +56,7 @@ export class CatalogConfig {
 	}
 
 	private async switchRemoteUrl(url: URL) {
-		const catalog = await this.loadRemote(this.#catalogUrl);
+		const catalog = await this.loadRemote(url);
 		await mkdir(dirname(this.configPath()), { recursive: true });
 		await writeFile(
 			this.configPath(),
@@ -93,7 +93,7 @@ export class CatalogConfig {
 }
 
 export namespace CatalogConfig {
-	export const DEFAULT_CATALOG_URL = new URL("releases/latest/download/catalog.json", packageJson.homepage + "/");
+	export const DEFAULT_CATALOG_URL = new URL("releases/latest/download/catalog.json", `${packageJson.homepage}/`);
 
 	export const Catalog = Type.Object({
 		models: Type.Array(Type.Unsafe<ModelConfig>(Type.Object({
