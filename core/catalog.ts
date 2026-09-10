@@ -2,7 +2,7 @@ import type { ProviderModelConfig } from "@earendil-works/pi-coding-agent";
 import ky from "ky";
 import { Type } from "typebox";
 import { Compile } from "typebox/schema";
-import { Annotation, LiteLLM, SumoPod } from "./schema";
+import { Annotation, LiteLLM, type ModelConfig, SumoPod } from "../extensions/schema";
 
 export class Catalog {
 	private client = ky.extend({});
@@ -15,7 +15,7 @@ export class Catalog {
 
 		const discountMap = Object.fromEntries((discounts ?? []).map(discount => [discount.id, discount]));
 
-		const models: Catalog.ModelConfig[] = [];
+		const models: ModelConfig[] = [];
 		const unmatched: SumoPod.Model[] = [];
 		const nonChat: SumoPod.Model[] = [];
 		for (const model of sumopod) {
@@ -43,7 +43,7 @@ export class Catalog {
 				}
 			}
 
-			const providerModel: Catalog.ModelConfig = {
+			const providerModel: ModelConfig = {
 				id: model.model_name,
 				name: modelName,
 				reasoning: liteModel.supports_reasoning === true,
@@ -106,14 +106,6 @@ export namespace Catalog {
 			catalogUrl: URL;
 		};
 		annotation?: Record<string, Annotation.Model>;
-	}
-
-	export interface ModelConfig extends ProviderModelConfig {
-		annotation?: Annotation.Model;
-		sumopod: {
-			model: SumoPod.Model;
-			discount?: SumoPod.Discount;
-		};
 	}
 }
 

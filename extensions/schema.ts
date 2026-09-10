@@ -1,3 +1,4 @@
+import type { ProviderModelConfig } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
 
 export namespace SumoPod {
@@ -85,4 +86,12 @@ export namespace Annotation {
 	});
 
 	export type Model = Type.Static<typeof Model>;
+}
+
+export interface ModelConfig extends ProviderModelConfig {
+	annotation?: Annotation.Model;
+	sumopod: {
+		model: SumoPod.Model;
+		discount?: SumoPod.Discount;
+	};
 }

@@ -4,8 +4,8 @@ import { join } from "node:path";
 import { Type } from "typebox";
 import { Parse } from "typebox/schema";
 import { IncrementalReasoningProbe } from "../core/reasoning-probe/incremental";
-import { Annotation } from "../core/schema";
 import rawAnnotation from "../data/annotation.jsonc" with { type: "jsonc" };
+import { Annotation } from "../extensions/schema";
 const annotation = Parse(Type.Record(Type.String(), Annotation.Model), rawAnnotation);
 
 const envs = cleanEnv(process.env, {

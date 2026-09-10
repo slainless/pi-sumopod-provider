@@ -3,9 +3,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { Type } from "typebox";
 import { Parse } from "typebox/schema";
-import type { Catalog } from "../core/catalog";
-import { SumoPod } from "../core/schema";
 import packageJson from "../package.json" with { type: "json" };
+import { type ModelConfig, SumoPod } from "./schema";
 
 export class CatalogConfig {
 	#catalogUrl = CatalogConfig.DEFAULT_CATALOG_URL;
@@ -86,7 +85,7 @@ export class CatalogConfig {
 		return join(dir, "sumopod", "catalog-data.json");
 	}
 
-	private sanitizeModel(model: Catalog.ModelConfig) {
+	private sanitizeModel(model: ModelConfig) {
 		const { annotation, sumopod, ...config } = model;
 		return config as ProviderModelConfig;
 	}
@@ -96,7 +95,7 @@ export namespace CatalogConfig {
 	export const DEFAULT_CATALOG_URL = new URL("releases/latest/download/catalog.json", packageJson.homepage + "/");
 
 	export const Catalog = Type.Object({
-		models: Type.Array(Type.Unsafe<Catalog.ModelConfig>(Type.Object({
+		models: Type.Array(Type.Unsafe<ModelConfig>(Type.Object({
 			sumopod: Type.Object({
 				model: SumoPod.Model,
 				discount: Type.Optional(SumoPod.Discount),

@@ -1,5 +1,5 @@
 import { HTTPError } from "ky";
-import type { Annotation } from "../schema";
+import type { Annotation } from "../../extensions/schema";
 import { ReasoningProbe } from "./base";
 
 export class IncrementalReasoningProbe extends ReasoningProbe {
