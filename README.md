@@ -24,7 +24,7 @@ You can also:
 - Edit `<pi-agent-dir>/sumopod/catalog-data.json` directly.
 - Host your own compatible `catalog.json` and configure the extension to use its URL.
 
-The catalog may lag behind SumoPod's currently available models. Automatic generation is not currently possible because SumoPod's model catalog is behind authentication and Cloudflare anti-bot protection. Releases therefore contain the latest catalog that could be generated and verified manually.
+> [!IMPORTANT] The catalog may lag behind SumoPod's currently available models. Automatic generation is not currently possible because SumoPod's model catalog is behind authentication and Cloudflare protection. Releases therefore contain the latest catalog that could be generated and verified manually.
 
 ## Technical details
 
@@ -42,14 +42,14 @@ It matches SumoPod models to LiteLLM metadata, removes non-chat models, applies 
 
 [`core/reasoning-probe`](core/reasoning-probe) tests how each model behaves through SumoPod's OpenAI-compatible chat endpoint. It checks which reasoning/thinking request formats are accepted, rejected, ignored, or require special handling.
 
-The results are recorded in `data/annotation.jsonc`. An annotation can provide:
+Though, the results are tracked manually to `data/annotation.jsonc`. The annotation can provide:
 
 - A LiteLLM model reference when the model name does not match directly.
 - The compatibility format pi should use.
 - Supported reasoning formats and known rejected formats.
 - Model-specific constraints, such as always-on reasoning or field overrides.
 
-This prevents pi from guessing model behavior from names alone.
+Since there is no good heuristic for the probe yet, the annotation so far is only manually handcrafted.
 
 ### Creating a catalog
 
@@ -75,10 +75,10 @@ The release asset is then used by the default catalog URL.
 
 ## Commands
 
-| Command | Description |
-| --- | --- |
-| `/sumopod-catalog-refresh` | Download and cache the catalog from the configured URL. |
-| `/sumopod-catalog-url <url>` | Use a different catalog URL and load it immediately. |
+| Command                      | Description                                             |
+| ---------------------------- | ------------------------------------------------------- |
+| `/sumopod-catalog-refresh`   | Download and cache the catalog from the configured URL. |
+| `/sumopod-catalog-url <url>` | Use a different catalog URL and load it immediately.    |
 
 The catalog URL can also be entered interactively when the command is run without an argument.
 
