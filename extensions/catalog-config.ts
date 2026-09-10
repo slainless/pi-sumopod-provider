@@ -1,6 +1,6 @@
 import { getAgentDir, type ProviderModelConfig } from "@earendil-works/pi-coding-agent";
-import { readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { Type } from "typebox";
 import { Parse } from "typebox/schema";
 import packageJson from "../package.json" with { type: "json" };
@@ -57,9 +57,10 @@ export class CatalogConfig {
 
 	private async switchRemoteUrl(url: URL) {
 		const catalog = await this.loadRemote(this.#catalogUrl);
+		await mkdir(dirname(this.configPath()), { recursive: true });
 		await writeFile(
 			this.configPath(),
-			JSON.stringify({ catalog, catalogUrl: url.href } satisfies CatalogConfig.Config),
+			JSON.stringify({ catalog, catalogUrl: url.href } satisfies CatalogConfig.Config, null, 2),
 		);
 
 		this.#catalog = catalog.models.map(this.sanitizeModel);
