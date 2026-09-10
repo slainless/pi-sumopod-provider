@@ -1,33 +1,12 @@
 import type { ExtensionAPI, ExtensionCommandContext } from "@earendil-works/pi-coding-agent";
 import { CatalogConfig } from "./catalog-config";
-import { APIKeyConfig } from "./key-config";
 
 export default async function(pi: ExtensionAPI) {
 	const config = new CatalogConfig();
-	const apiKey = new APIKeyConfig();
 
 	await config.init();
 
-	// Register /sumopod-key command for easy API key setup
-	pi.registerCommand("sumopod-key", {
-		description: "Set your SumoPod API key",
-		handler: async (args, ctx) => {
-			const key = await input(args, ctx, {
-				prompt: "Enter your SumoPod API Key",
-				placeholder: "sk-...",
-				warning: "No API key provided",
-			});
-			if (!key) return;
-
-			await apiKey.setKey(key);
-
-			refreshProvider();
-
-			ctx.ui.notify("SumoPod API key saved and provider reloaded!", "info");
-		},
-	});
-
-	pi.registerCommand("/sumopod-catalog-url", {
+	pi.registerCommand("sumopod-catalog-url", {
 		description: `Set Sumopod catalog url (default: ${CatalogConfig.DEFAULT_CATALOG_URL.href}`,
 		handler: async (args, ctx) => {
 			const key = await input(args, ctx, {
@@ -44,7 +23,7 @@ export default async function(pi: ExtensionAPI) {
 		},
 	});
 
-	pi.registerCommand("/sumopod-catalog-refresh", {
+	pi.registerCommand("sumopod-catalog-refresh", {
 		description: `Refresh Sumopod catalog`,
 		handler: async (args, ctx) => {
 			await config.refresh();
@@ -55,13 +34,10 @@ export default async function(pi: ExtensionAPI) {
 	refreshProvider();
 
 	function refreshProvider() {
-		const key = apiKey.key() ?? "$SUMOPOD_API_KEY";
-
-		// Register SumoPod provider
 		pi.registerProvider("sumopod", {
 			name: "SumoPod",
 			baseUrl: "https://ai.sumopod.com/v1",
-			apiKey: key,
+			apiKey: "$SUMOPOD_API_KEY",
 			authHeader: true,
 			api: "openai-completions",
 			models: config.catalog(),
