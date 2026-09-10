@@ -1,5 +1,6 @@
 {
-	"name": "pi-sumopod",
+	"name": "pi-sumopod-provider",
+	"version": "0.0.1",
 	"author": {
 		"name": "Aiman Fauzy",
 		"email": "aiman.fauzy.55@gmail.com"
