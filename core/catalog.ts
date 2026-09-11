@@ -37,7 +37,7 @@ export class Catalog {
 			const discount = discountMap[model.model_name];
 			let modelName = model.model_name;
 			if (discount) {
-				modelName += ` ·${discount.amount_in_percentage}`;
+				modelName += ` ·${discount.amount_in_percentage}% off`;
 				if (discount.expired_at) {
 					modelName += ` until ${discount.expired_at}`;
 				}
