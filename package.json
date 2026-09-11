@@ -16,6 +16,7 @@
 	"module": "index.ts",
 	"type": "module",
 	"license": "MIT",
+	"keywords": ["pi-package", "sumopod"],
 	"scripts": {
 		"probe.report": "bun run ./scripts/reasoning-report.ts",
 		"probe.repl": "./scripts/reasoning-repl.expect",
@@ -38,6 +39,6 @@
 		"extensions": [
 			"./extensions/sumopod.ts"
 		],
-		"image": "https://ai.sumopod.com/assets/pi-package-preview.png"
+		"image": "https://raw.githubusercontent.com/slainless/pi-sumopod-provider/master/assets/lucide--box.png"
 	}
 }
