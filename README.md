@@ -24,7 +24,8 @@ You can also:
 - Edit `<pi-agent-dir>/sumopod/catalog-data.json` directly.
 - Host your own compatible `catalog.json` and configure the extension to use its URL.
 
-> [!IMPORTANT] The catalog may lag behind SumoPod's currently available models. Automatic generation is not currently possible because SumoPod's model catalog is behind authentication and Cloudflare protection. Releases therefore contain the latest catalog that could be generated and verified manually.
+> [!IMPORTANT]
+> The catalog may lag behind SumoPod's currently available models. Automatic generation is not currently possible because SumoPod's model catalog is behind authentication and Cloudflare protection. Releases therefore contain the latest catalog that could be generated and verified manually.
 
 ## Technical details
 
