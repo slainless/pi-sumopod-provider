@@ -24,4 +24,4 @@ const catalog = new Catalog({
 });
 
 const result = await catalog.catalog();
-await Bun.write(join("output", "catalog.json"), JSON.stringify(result));
+await Bun.write(join("output", "catalog.json"), JSON.stringify(result, null, 2));
