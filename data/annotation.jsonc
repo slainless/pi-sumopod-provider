@@ -237,22 +237,22 @@
 	// sometimes fail with 404...
 	"glm-5": {
 		"thinkingFormat": { "supported": "always" },
-		"liteReference": "openrouter/z-ai/glm-5"
+		"liteReference": "zai/glm-5"
 	},
 	"glm-5-turbo": {
-		"liteReference": "openrouter/z-ai/glm-5-turbo",
+		"liteReference": "novita/zai-org/glm-5-turbo",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"glm-5.1": {
-		"liteReference": "openrouter/z-ai/glm-5.1",
+		"liteReference": "zai/glm-5.1",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"glm-5.2": {
-		"liteReference": "openrouter/z-ai/glm-5.2",
+		"liteReference": "zai/glm-5.2",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"glm-5v-turbo": {
-		"liteReference": "openrouter/z-ai/glm-5v-turbo",
+		"liteReference": "novita/zai-org/glm-5v-turbo",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"gpt-5": {
@@ -432,7 +432,7 @@
 		"thinkingFormat": { "supported": "always" }
 	},
 	"kimi-k2.6": {
-		"liteReference": "openrouter/moonshotai/kimi-k2.6",
+		"liteReference": "moonshot/kimi-k2.6",
 		"thinkingFormat": {
 			"baselineReasoning": false,
 			"supported": [],
@@ -452,7 +452,7 @@
 		}
 	},
 	"kimi-k2.7": {
-		"liteReference": "openrouter/moonshotai/kimi-k2.7-code",
+		"liteReference": "moonshot/kimi-k2.7-code",
 		"thinkingFormat": {
 			"baselineReasoning": true,
 			"supported": "always",
@@ -460,7 +460,7 @@
 		}
 	},
 	"kimi-k3": {
-		"liteReference": "openrouter/moonshotai/kimi-k3",
+		"liteReference": "moonshot/kimi-k3",
 		"thinkingFormat": {
 			"baselineReasoning": true,
 			"supported": "always",
@@ -468,11 +468,11 @@
 		}
 	},
 	"mimo-v2.5": {
-		"liteReference": "openrouter/xiaomi/mimo-v2.5",
+		"liteReference": "deepinfra/XiaomiMiMo/MiMo-V2.5",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"mimo-v2.5-pro": {
-		"liteReference": "openrouter/xiaomi/mimo-v2.5-pro",
+		"liteReference": "deepinfra/XiaomiMiMo/MiMo-V2.5-Pro",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"MiniMax-M2.7-highspeed": {
@@ -499,19 +499,29 @@
 		}
 	},
 	"qwen3.6-flash": {
-		"liteReference": "openrouter/qwen/qwen3.6-flash",
+		"liteOverride": {
+			"supports_reasoning": true,
+			"max_output_tokens": 65536,
+			"supports_vision": true,
+			"mode": "chat"
+		},
 		"thinkingFormat": { "supported": "always" }
 	},
 	"qwen3.6-plus": {
-		"liteReference": "openrouter/qwen/qwen3.6-plus",
+		"liteReference": "together_ai/Qwen/Qwen3.6-Plus",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"qwen3.7-flash-2026-07-15": {
-		"liteReference": "openrouter/qwen/qwen3.7-flash",
+		"liteOverride": {
+			"supports_reasoning": true,
+			"max_output_tokens": 65536,
+			"supports_vision": true,
+			"mode": "chat"
+		},
 		"thinkingFormat": { "supported": "always" }
 	},
 	"qwen3.7-max": {
-		"liteReference": "openrouter/qwen/qwen3.7-max",
+		"liteReference": "qwen_ai_platform/qwen3.7-max",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"qwen3.7-plus": {
@@ -519,7 +529,7 @@
 		"thinkingFormat": { "supported": "always" }
 	},
 	"qwen3.8-flash": {
-		"liteReference": "openrouter/qwen/qwen3.8-flash",
+		"liteReference": "qwen_ai_platform/qwen3.8-flash",
 		"thinkingFormat": { "supported": "always" }
 	},
 	"qwen3.8-max": {
@@ -554,7 +564,7 @@
 	"gemini/gemini-embedding-001": { "thinkingFormat": { "supported": false, "reason": "non_chat" } },
 	"deepseek-v4-flash-0731:netra": {
 		"compat": { "thinkingFormat": "openrouter" },
-		"liteReference": "openrouter/deepseek/deepseek-v4-flash-0731",
+		"liteReference": "azure_ai/DeepSeek-V4-Flash-0731",
 		"thinkingFormat": {
 			"baselineReasoning": false,
 			"supported": [
@@ -573,5 +583,53 @@
 				{ "id": "v11_string_thinking", "reason": "ignored" }
 			]
 		}
+	},
+	"deepseek-v4.1-flash:netra": {
+		"compat": { "thinkingFormat": "openai" },
+		"liteReference": "azure_ai/deepseek-v4.1-flash",
+		"thinkingFormat": {
+			"baselineReasoning": false,
+			"supported": [
+				{ "id": "v1_openai" },
+				{ "id": "v2_openrouter" },
+				{ "id": "v4_qwen_chat_template" },
+				{ "id": "v6_deepseek" },
+				{ "id": "v7_together" },
+				{ "id": "v8_baseten" },
+				{ "id": "v9_zai" },
+				{ "id": "v12_ant_ling" }
+			],
+			"rejected": [
+				{ "id": "v3_qwen", "reason": "ignored" },
+				{ "id": "v10_chat_template", "reason": "ignored" },
+				{ "id": "v11_string_thinking", "reason": "ignored" }
+			]
+		}
+	},
+	"glm-5.3-flash": {
+		"liteReference": "zai/glm-5.3-flash",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"mimo-v2.6-flash": {
+		"liteReference": "xiaomi_mimo/mimo-v2.6-flash",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"mimo-v2.6-pro": {
+		"liteReference": "xiaomi_mimo/mimo-v2.6-pro",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"mimo-v2.6-pro-ultraspeed": {
+		"liteReference": "xiaomi_mimo/mimo-v2.6-pro",
+		"thinkingFormat": { "supported": "always" }
+	},
+	"MiniMax-M3.1-Flash-Preview": {
+		// no data coverage from litellm yet...
+		"liteOverride": {
+			"supports_reasoning": true,
+			"max_output_tokens": 131072,
+			"supports_vision": true,
+			"mode": "chat"
+		},
+		"thinkingFormat": { "supported": "always" }
 	}
 }

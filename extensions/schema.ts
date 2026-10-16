@@ -40,6 +40,7 @@ export namespace LiteLLM {
 		IMAGE_EDIT = "image_edit",
 		VIDEO_GENERATION = "video_generation",
 		VECTOR_STORE = "vector_store",
+		EVALUATION = "evaluation",
 	}
 
 	export const Model = Type.Object({
@@ -81,6 +82,7 @@ export namespace Annotation {
 
 	export const Model = Type.Object({
 		liteReference: Type.Optional(Type.String()),
+		liteOverride: Type.Optional(LiteLLM.Model),
 		compat: Type.Optional(Type.Any()),
 		thinkingFormat: Type.Optional(ThinkingFormat),
 	});

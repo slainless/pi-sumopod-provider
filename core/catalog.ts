@@ -5,7 +5,9 @@ import { Compile } from "typebox/schema";
 import { Annotation, LiteLLM, type ModelConfig, SumoPod } from "../extensions/schema";
 
 export class Catalog {
-	private client = ky.extend({});
+	private client = ky.extend({
+		timeout: 1000 * 120,
+	});
 
 	constructor(private options: Catalog.Options) {}
 
@@ -20,7 +22,8 @@ export class Catalog {
 		const nonChat: SumoPod.Model[] = [];
 		for (const model of sumopod) {
 			const annotation = this.options.annotation?.[model.model_name];
-			const liteModel = litellm[annotation?.liteReference ?? "🤨"]
+			const liteModel = annotation?.liteOverride
+				?? litellm[annotation?.liteReference ?? "🤨"]
 				?? litellm[model.model_name]
 				?? litellm[`${model.provider}/${model.model_name}`];
 
